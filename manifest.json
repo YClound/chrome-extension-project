@@ -1,0 +1,35 @@
+{
+  "name": "Hello Extensions",
+  "description": "Base Level Extensions",
+  "version": "1.0",
+  "manifest_version": 3,
+  "icons": {
+    "16": "./image/popup.png",
+    "48": "./image/popup.png",
+    "128": "./image/popup.png"
+  },
+  "action": {
+    "default_title": "chrome plugin",
+    "default_popup": "popup.html",
+    "default_icon": "./image/popup.png"
+  },
+  "background": {
+    "service_worker": "./js/background.js"
+  },
+  "options_page": "options.html",
+  "content_scripts": [{
+    "matches": ["https://open.alipay.com/*"],
+    "css": [],
+    "js": [
+      "./js/monitor-helper.js"
+    ],
+    "run_at": "document_start"
+  }],
+  "permissions": ["storage", "activeTab", "scripting", "declarativeContent", "tabs", "webRequest"],
+  "devtools_page": "devtools.html",
+  "web_accessible_resources": [{
+    "resources": ["js/myXHRScript.js"],
+    "matches": ["<all_urls>"]
+  }],
+  "host_permissions": ["https://open.alipay.com/*"]
+}
