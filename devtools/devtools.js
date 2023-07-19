@@ -2,7 +2,7 @@
  * chrome.devtools.panels 下的sources.createSidebarPane / elements.createSidebarPane
  * 能分别在 sources和elements标签页下新建siderbar
  * 有两种方式嵌入siderbar内容
- * sidebar.setPage("element.html");
+ * sidebar.setPage("./element.html");
  * sidebar.setExpression("(() => {return {a:1}})()");
  * 需要注意的是 两者只会生效一个
  */
@@ -37,7 +37,7 @@ chrome.devtools.panels.sources.createSidebarPane("source pannel", (sidebar) => {
 chrome.devtools.panels.elements.createSidebarPane(
 	"element html pannel",
 	(sidebar) => {
-		sidebar.setPage("element.html");
+		sidebar.setPage("./element.html");
 	}
 );
 
